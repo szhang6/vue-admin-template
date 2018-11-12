@@ -57,7 +57,8 @@ module.exports = {
      * then assetsPublicPath should be set to "/bar/".
      * In most cases please use '/' !!!
      */
-    assetsPublicPath: '/',
+    // assetsPublicPath: '/',
+    assetsPublicPath: './', // Modify this due to cannot show page after run npm run build cmd in local. 2018年11月10日 12:35:23
 
     /**
      * Source Maps

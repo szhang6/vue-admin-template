@@ -146,6 +146,7 @@ export const constantRouterMap = [
 
 export default new Router({
   // mode: 'history', //后端支持可开
+  // mode: 'hash', //Add to let route can work in local by zxx 2018年11月10日 12:56:47
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })

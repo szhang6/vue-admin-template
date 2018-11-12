@@ -88,12 +88,16 @@ export default {
     },
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
+        debugger
         if (valid) {
           this.loading = true
           this.$store.dispatch('Login', this.loginForm).then(() => {
+            console.log('---dispatch succeed---')
             this.loading = false
+            console.log('this.redirect: ' + this.redirect)
             this.$router.push({ path: this.redirect || '/' })
           }).catch(() => {
+            console.log('---this is catch---')
             this.loading = false
           })
         } else {

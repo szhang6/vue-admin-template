@@ -8,11 +8,16 @@ import { getToken } from '@/utils/auth' // 验权
 const whiteList = ['/login'] // 不重定向白名单
 router.beforeEach((to, from, next) => {
   NProgress.start()
+  console.log('--permission--')
   if (getToken()) {
+    console.log('get token true')
+    console.log('to path: ' + to.path)
     if (to.path === '/login') {
+      console.log('to.path is /login')
       next({ path: '/' })
       NProgress.done() // if current page is dashboard will not trigger	afterEach hook, so manually handle it
     } else {
+      console.log('to path is not login')
       if (store.getters.roles.length === 0) {
         store.dispatch('GetInfo').then(res => { // 拉取用户信息
           next()
@@ -27,6 +32,7 @@ router.beforeEach((to, from, next) => {
       }
     }
   } else {
+    console.log('get token false')
     if (whiteList.indexOf(to.path) !== -1) {
       next()
     } else {
