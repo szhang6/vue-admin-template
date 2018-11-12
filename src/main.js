@@ -15,6 +15,8 @@ import store from './store'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+import 'babel-polyfill' // add for IE 2018.11.12
+
 Vue.use(ElementUI, { locale })
 
 Vue.config.productionTip = false
